@@ -9,13 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        WebView(url: URL(string: "https://www.notion.so/Todo-1ee65e5b6a0d4a4cbb8cecd1991eb6da?pvs=4"))
     }
 }
 
