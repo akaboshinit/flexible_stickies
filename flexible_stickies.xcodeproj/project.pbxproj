@@ -15,6 +15,7 @@
 		2223286C2AE6673300F7B456 /* flexible_stickiesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2223286B2AE6673300F7B456 /* flexible_stickiesUITests.swift */; };
 		2223286E2AE6673300F7B456 /* flexible_stickiesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2223286D2AE6673300F7B456 /* flexible_stickiesUITestsLaunchTests.swift */; };
 		2223287B2AE6680200F7B456 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2223287A2AE6680200F7B456 /* WebView.swift */; };
+		222328812AE7668000F7B456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222328802AE7668000F7B456 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2223286B2AE6673300F7B456 /* flexible_stickiesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flexible_stickiesUITests.swift; sourceTree = "<group>"; };
 		2223286D2AE6673300F7B456 /* flexible_stickiesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flexible_stickiesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2223287A2AE6680200F7B456 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		222328802AE7668000F7B456 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		2223284E2AE6673100F7B456 /* flexible_stickies */ = {
 			isa = PBXGroup;
 			children = (
+				222328802AE7668000F7B456 /* Main.storyboard */,
 				2223284F2AE6673100F7B456 /* flexible_stickiesApp.swift */,
 				222328512AE6673100F7B456 /* ContentView.swift */,
 				2223287A2AE6680200F7B456 /* WebView.swift */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222328812AE7668000F7B456 /* Main.storyboard in Resources */,
 				222328572AE6673200F7B456 /* Preview Assets.xcassets in Resources */,
 				222328542AE6673200F7B456 /* Assets.xcassets in Resources */,
 			);
@@ -434,6 +438,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -461,6 +466,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

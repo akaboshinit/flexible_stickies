@@ -1,21 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17150"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="PEd-7d-5j0">
+        <scene sceneID="lwe-d4-7Zb">
             <objects>
-                <viewController id="bU7-R8-ocO" sceneMemberID="viewController">
-                    <view key="view" id="tOy-S4-hL0">
+                <viewController id="7Pj-At-7jG" sceneMemberID="viewController">
+                    <view key="view" id="nhN-S1-Scj">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
-                <customObject id="9uD-mB-xHs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="9TS-ye-ald" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-569" y="-181"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="PaM-Jf-VVr">
+            <objects>
+                <windowController id="rRA-Zr-dg4" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="1W2-d4-LrG">
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="211" y="267" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
+                        <view key="contentView" id="h5o-6d-a2q">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="rRA-Zr-dg4" id="qZU-C9-qh1"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="fGf-fw-4Dl" kind="relationship" relationship="window.shadowedContentViewController" id="3yd-r9-Ri1"/>
+                    </connections>
+                </windowController>
+                <customObject id="79R-R6-d92" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-569" y="191"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EGr-qg-fmZ">
+            <objects>
+                <viewController id="fGf-fw-4Dl" sceneMemberID="viewController">
+                    <view key="view" id="py6-cy-UCL">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="dqf-hO-IjP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-569" y="170"/>
         </scene>
     </scenes>
 </document>
