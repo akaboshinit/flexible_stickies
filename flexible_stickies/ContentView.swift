@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    private var webView: WebView
+    
+    init(webView: WebView) {
+        self.webView = webView
+    }
+    
     var body: some View {
-        WebView(url: URL(string: "https://www.notion.so/Todo-1ee65e5b6a0d4a4cbb8cecd1991eb6da?pvs=4"))
+        webView
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(webView: WebView(urlString: "https://www.notion.so/Todo-1ee65e5b6a0d4a4cbb8cecd1991eb6da?pvs=4"))
 }

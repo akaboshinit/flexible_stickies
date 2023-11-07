@@ -10,7 +10,7 @@ import SwiftUI
 
 let minWidth:CGFloat = 400
 let maxWidth:CGFloat = 400
-let minHeight:CGFloat = 1
+let minHeight:CGFloat = 40
 let maxHeight:CGFloat = 600
 
 @main
@@ -19,8 +19,10 @@ struct flexible_stickiesApp: App {
     @Environment(\.openWindow) var openWindow
     
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        
+        WindowGroup (){
+            let webView = WebView(urlString: "https://www.notion.so/Todo-1ee65e5b6a0d4a4cbb8cecd1991eb6da?pvs=4")
+            ContentView(webView:webView)
                 .frame(
                     minWidth: minWidth,
                     maxWidth: maxWidth,
@@ -31,7 +33,7 @@ struct flexible_stickiesApp: App {
                         Button(action: {
                             toggleWindowSize()
                         }, label: {
-                            Text("📦")
+                            Text("↕️")
                         })
                         .buttonStyle(.plain)
                     }
@@ -42,7 +44,15 @@ struct flexible_stickiesApp: App {
                                 initWindowSetting(window)
                             }
                         }, label: {
-                            Text("👉")
+                            Text("🔀")
+                        })
+                        .buttonStyle(.plain)
+                    }
+                    ToolbarItemGroup(placement: ToolbarItemPlacement.automatic) {
+                        Button(action: {
+                            webView.goBack()
+                        }, label: {
+                            Text("↩️")
                         })
                         .buttonStyle(.plain)
                     }
@@ -53,8 +63,9 @@ struct flexible_stickiesApp: App {
         .windowResizability(.contentSize)
         
         
-        WindowGroup(id:"other") {
-            ContentView()
+        WindowGroup(id: "other", for: UUID.self) { _ in
+            let webView = WebView(urlString: "https://www.notion.so/Todo-1ee65e5b6a0d4a4cbb8cecd1991eb6da?pvs=4")
+            ContentView(webView:webView)
                 .frame(
                     minWidth: minWidth,
                     maxWidth: maxWidth,
@@ -65,7 +76,7 @@ struct flexible_stickiesApp: App {
                         Button(action: {
                             toggleWindowSize()
                         }, label: {
-                            Text("📦")
+                            Text("↕️")
                         })
                         .buttonStyle(.plain)
                     }
@@ -76,7 +87,15 @@ struct flexible_stickiesApp: App {
                                 initWindowSetting(window)
                             }
                         }, label: {
-                            Text("👉")
+                            Text("🔀")
+                        })
+                        .buttonStyle(.plain)
+                    }
+                    ToolbarItemGroup(placement: ToolbarItemPlacement.automatic) {
+                        Button(action: {
+                            webView.goBack()
+                        }, label: {
+                            Text("↩️")
                         })
                         .buttonStyle(.plain)
                     }
@@ -145,20 +164,20 @@ func initWindowSetting (_ window: NSWindow){
     window.standardWindowButton(.miniaturizeButton)!.isHidden = true
     window.standardWindowButton(.zoomButton)!.isHidden = true
     
-//    window.backgroundColor = NSColor.white.withAlphaComponent(0.00001)
+    //toolbarを透明に
+    //    window.backgroundColor = NSColor.white.withAlphaComponent(0.00001)
     window.backgroundColor = NSColor.white.withAlphaComponent(0.1)
     window.isOpaque = false
     //        window.hasShadow = false
 }
 
 func toggleWindowSize(){
-    if let window = NSApplication.shared.currentEvent?.window {
-        if (window.frame.size.height < 50){
+    if let window = NSApplication.shared.keyWindow {
+        if (window.frame.size.height < minHeight * 2){
             window.setContentSize(NSSize(width: maxWidth,height: maxHeight))
         } else{
             window.setContentSize(NSSize(width: minWidth,height: minHeight))
         }
-        
         window.level = .floating
         window.collectionBehavior = .canJoinAllSpaces
     }
