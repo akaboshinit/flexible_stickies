@@ -8,7 +8,9 @@ public struct WebView: NSViewRepresentable {
     private let webViewDelegate = WebViewDelegate()
     
     public func makeNSView(context: Context) -> WKWebView {
-        let view = makeView()
+        let view = makeWebView()
+        tryLoad(URL(string:urlString), into: view)
+        
         return view
     }
     
@@ -17,6 +19,20 @@ public struct WebView: NSViewRepresentable {
     public func goBack (){
         print("goBack")
         webView.goBack()
+    }
+    
+    private func makeWebView() -> WKWebView {
+        //        guard let configuration = self.configuration else { return WKWebView() }
+        webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+        webView.allowsBackForwardNavigationGestures = true
+        webView.frame = .zero
+        webView.uiDelegate = webViewDelegate  // Register the delegate
+        return webView
+    }
+    
+    private func tryLoad(_ url: URL?, into view: WKWebView) {
+        guard let url = url else { return }
+        view.load(URLRequest(url: url))
     }
 }
 
@@ -34,26 +50,7 @@ class WebViewDelegate: NSObject, WKUIDelegate {
 }
 
 private extension WebView {
-    func makeWebView() -> WKWebView {
-        //        guard let configuration = self.configuration else { return WKWebView() }
-        webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-        webView.allowsBackForwardNavigationGestures = true
-        webView.frame = .zero
-        webView.uiDelegate = webViewDelegate  // Register the delegate
-        return webView
-    }
-    
-    func makeView() -> WKWebView {
-        let view = makeWebView()
-        tryLoad(URL(string:urlString), into: view)
-        
-        return view
-    }
-    
-    func tryLoad(_ url: URL?, into view: WKWebView) {
-        guard let url = url else { return }
-        view.load(URLRequest(url: url))
-    }
+
 }
 
 
