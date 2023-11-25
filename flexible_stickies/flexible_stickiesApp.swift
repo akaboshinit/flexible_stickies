@@ -56,7 +56,11 @@ struct flexible_stickiesApp: App {
                         })
                         .buttonStyle(.plain)
                     }
-                })
+                }).onAppear(){
+                    for window in NSApplication.shared.windows {
+                        initWindowSetting(window)
+                    }
+                }
         }
         .defaultSize(CGSize(width: maxWidth, height: maxHeight))
         .defaultPosition(.topLeading)
@@ -124,10 +128,6 @@ struct flexible_stickiesApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        for window in NSApplication.shared.windows {
-            initWindowSetting(window)
-        }
-        
         // menubarからいらないもの消す
         DispatchQueue.main.async {
             if let menu = NSApplication.shared.mainMenu {
@@ -143,10 +143,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        // シングルアプリケーションとしたいため、ウィンドウを閉じたらアプリケーションも閉じる
-        return true
-    }
+//    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+//        // シングルアプリケーションとしたいため、ウィンドウを閉じたらアプリケーションも閉じる
+//        return true
+//    }
 }
 
 
